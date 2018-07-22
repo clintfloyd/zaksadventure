@@ -5,6 +5,7 @@ if($_SERVER['SERVER_ADDR'] == '127.0.0.1'){
 	$WEIGHT = "12";
 	$HEIGHT = "90";
 	$COUNTRIES_VISITED = "9";
+	$INSTA_ACCESS_TOKEN = "4638438647.7cd2b3d.5336c5933d9e48318d74413fab8a1e2f";
 
 }else{
 
@@ -12,6 +13,7 @@ if($_SERVER['SERVER_ADDR'] == '127.0.0.1'){
 	$WEIGHT = getenv('WEIGHT');
 	$HEIGHT = getenv('HEIGHT');
 	$COUNTRIES_VISITED = getenv('COUNTRIES_VISITED');
+	$INSTA_ACCESS_TOKEN = getenv('INSTA_ACCESS_TOKEN');
 
 }
 
@@ -43,4 +45,7 @@ $temperature = $json_weather["main"]->temp;
 
 $temp_in_c = $temperature - 273.15;
 
+
+$raw_photos = file_get_contents("https://api.instagram.com/v1/users/self/media/recent/?access_token=".$INSTA_ACCESS_TOKEN);
+$insta_photos = (array) json_decode($raw_photos);
 ?>
