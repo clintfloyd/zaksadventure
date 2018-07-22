@@ -37,7 +37,7 @@ function yearsLabel(){
 	}
 }
 
-$weather = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=Dubai&appid=39b2cbdd27e4f978ecc9d392617720e3");
+$weather = file_get_contents("http://api.openweathermap.org/data/2.5/weather?q=".$CURRENTLY_IN."&appid=39b2cbdd27e4f978ecc9d392617720e3");
 
 $json_weather = (array) json_decode($weather);
 
