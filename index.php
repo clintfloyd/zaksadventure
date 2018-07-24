@@ -67,10 +67,19 @@
 					foreach($data as $d){
 						$image = $d->images->standard_resolution->url;
 						$caption = @$d->caption->text;
+						$type = @$d->type;
+
+						if($type == "carousel"){
+							$media = stripslashes(json_encode($d->carousel_media));
+						}else if($type == "video"){
+							$media = ($d->videos->standard_resolution->url);
+						}else{
+							$media = "";
+						}
 					?>
-						<div class="col-6 col-md-3 photoContainer" id="<?php echo $d->id; ?>">
+						<div class="col-6 col-md-3 photoContainer <?php echo $type; ?>" id="<?php echo $d->id; ?>">
 							<div>
-								<a href="javascript:;" class="openImage">
+								<a href="javascript:;" class="openImage" data-type="<?php echo $type; ?>"  data-toggle="modal" data-target="#enlargePic" data-media='<?php echo $media; ?>' data-caption="<?php echo $caption; ?>">
 									<img src="<?php echo $image; ?>" class="img-fluids" />
 									<p>
 										<?php echo $caption; ?>
@@ -95,6 +104,31 @@
 		</footer>
 
 
+
+		<div class="enlargePic" role="dialog" tabindex="-1" aria-hidden="true" id="enlargePic">
+			<a href="javascript:;" class="closeDialog" data-toggle="modal" data-target="#enlargePic">&times;</a>
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-8 imagePreviewContainer">
+						<div class="imgView">
+							<img src="https://scontent.cdninstagram.com/vp/a34dbfbfb47f6202f611bbb18707add3/5C10690C/t51.2885-15/sh0.08/e35/s640x640/35617122_1762040220549954_7489908306882854912_n.jpg" class="mainImageView" />
+						</div>
+						<div class="vidView"></div>
+					</div>
+					<div class="col-12 col-md-4">
+						<div>
+							<p class="caption">
+
+							</p>
+							<h2 class="seemore">See more pics here!</h2>
+							<div class="row rowImageListing">
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div class="myModal" role="dialog" tabindex="-1" aria-hidden="true" id="PrivacyPolicy">
 			<a href="javascript:;" class="closeDialog" data-toggle="modal" data-target="#PrivacyPolicy">&times;</a>
@@ -218,5 +252,6 @@
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/custom.js"></script>
 	</body>
 </html>
