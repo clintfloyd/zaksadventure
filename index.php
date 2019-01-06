@@ -13,7 +13,19 @@
   <body>
     <header>
       <div class="container">
-        <img src="images/zak-updated-white.svg" class="logo" />
+        <div class="row">
+          <div class="col-md-4 col-12">
+            <img src="images/zak-updated-white.svg" class="logo" />
+          </div>
+          <div class="col-md-8 col-12 text-right weather-info">
+            <span>Currently it's <span><?php echo $temp_in_c; ?></span>&deg;C in <?php echo $CURRENTLY_IN; ?>.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container head-message-container">
+        <h1>Hi, I'm Zak!</h1>
+        <p>A super naughty 2-year-old kid<br /> who lives in Dubai.</p>
       </div>
       <video autoplay muted loop id="myVideo">
         <source src="videos/video-bg.mp4" type="video/mp4">
@@ -23,7 +35,7 @@
     </header>
 
     <div class="container pic-collage">
-      <h1>Hi, I'm Zak!</h1>
+      <h2>Woook!</h2>
       <div class="row">
         <?php
         $data = $insta_photos['data'];
@@ -62,6 +74,14 @@
         <strong>Copyright &copy; <?php echo date("Y"); ?>, Zaks Adventure</strong> <br />No part of this site, zaksadventure.com, may be reproduced in whole or in part in any manner without the permission of the copyright owner.
       </div>
     </footer>
+
+    <div class="popup-container hidden">
+      <div class="popup-container--pop">
+        <div class="row">
+          <div class="col-md-6"
+        <img src="https://scontent.cdninstagram.com/vp/e20f2492fef7b68db157674b349257e4/5CCE1E5C/t51.2885-15/sh0.08/e35/s640x640/47317841_375789222994883_5602856239675313345_n.jpg?_nc_ht=scontent.cdninstagram.com" />
+      </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="js/bootstrap.bundle.min.js"></script>

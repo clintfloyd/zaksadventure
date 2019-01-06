@@ -6,13 +6,54 @@ header {
   width: calc(100vw);
   background: silver;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  background: #000; }
   header .container {
     position: relative;
     z-index: 100; }
     header .container .logo {
-      width: 200px;
+      width: 150px;
       margin-top: 20px; }
+  header .weather-info {
+    color: #fff;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: rights; }
+    @media (max-width: 600px) {
+      header .weather-info {
+        font-size: 1.3rem;
+        flex-direction: row;
+        display: block;
+        text-align: left !important;
+        margin-top: 20px; } }
+  header .head-message-container {
+    position: relative;
+    bottom: -30vh;
+    left: 0px; }
+    header .head-message-container h1 {
+      font-size: 9rem;
+      letter-spacing: -1.2rem;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: underline; }
+      @media (max-width: 600px) {
+        header .head-message-container h1 {
+          font-size: 4rem;
+          display: block;
+          letter-spacing: -0.5rem; } }
+    header .head-message-container p {
+      font-size: 4rem;
+      letter-spacing: -0.3rem;
+      line-height: 3rem;
+      width: calc(80%);
+      color: #fff; }
+      @media (max-width: 600px) {
+        header .head-message-container p {
+          font-size: 2rem;
+          display: block;
+          letter-spacing: -0.1rem; } }
   header video {
     min-width: 100%;
     min-height: 100%;
@@ -41,12 +82,16 @@ header {
       -webkit-clip-path: polygon(24% 0, 100% 20%, 100% 100%, 0 100%, 0 38%);
       clip-path: polygon(24% 0, 100% 20%, 100% 100%, 0 100%, 0 38%); }
 
-.pic-collage h1 {
+.pic-collage h2 {
   margin: 0 0 50px;
   padding: 0;
   font-weight: 800;
-  font-size: 9rem;
+  font-size: 8rem;
   letter-spacing: -15px; }
+  @media (max-width: 700px) {
+    .pic-collage h2 {
+      font-size: 4rem;
+      letter-spacing: -0.3rem; } }
 .pic-collage a {
   margin-bottom: 30px;
   display: block; }
@@ -64,5 +109,37 @@ header {
 footer {
   margin: 100px 0;
   letter-spacing: -1px; }
+
+.popup-container {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  background-filter: blur(5px);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center; }
+  .popup-container--pop {
+    width: calc(70vw);
+    height: calc(70vh);
+    background: #FF0099;
+    background-image: linear-gradient(45deg, #bb0202 0%, #512696 100%);
+    margin: 0 auto;
+    border-radius: 81% 19% 65% 35% / 39% 71% 29% 61%; }
+    .popup-container--pop img {
+      position: relative;
+      width: calc(40%);
+      border-top-left-radius: 20%; }
+    @media (max-width: 600px) {
+      .popup-container--pop {
+        border-radius: 0;
+        width: calc(100vw);
+        height: calc(100vh);
+        position: fixed;
+        top: 0;
+        left: 0; } }
 
 /*# sourceMappingURL=styles.css.map */
