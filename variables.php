@@ -43,7 +43,7 @@ $json_weather = (array) json_decode($weather);
 
 $temperature = $json_weather["main"]->temp;
 
-$temp_in_c = $temperature - 273.15;
+$temp_in_c = floor($temperature - 273.15);
 
 
 $raw_photos = file_get_contents("https://api.instagram.com/v1/users/self/media/recent/?access_token=".$INSTA_ACCESS_TOKEN);
